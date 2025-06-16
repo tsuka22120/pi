@@ -21,6 +21,35 @@ class num {
     void setValue(RADIX_T val);
     RADIX_T getValue() const;
     void print() const;
+    bool isZero() const;
+    int compare(const num& other) const;
+
+    friend std::ostream& operator<<(std::ostream& os, const num& n);
+    friend std::istream& operator>>(std::istream& is, num& n);
+
+    num& operator+(const num& other);
+    num& operator-(const num& other);
+    num& operator*(const num& other);
+    num& operator/(const num& other);
+    num& operator%(const num& other);
+    num& operator+=(const num& other);
+    num& operator-=(const num& other);
+    num& operator*=(const num& other);
+    num& operator/=(const num& other);
+    num& operator%=(const num& other);
 };
+
+num operator+(const num& lhs, const num& rhs);
+num operator-(const num& lhs, const num& rhs);
+num operator*(const num& lhs, const num& rhs);
+num operator/(const num& lhs, const num& rhs);
+num operator%(const num& lhs, const num& rhs);
+
+bool operator==(const num& lhs, const num& rhs);
+bool operator!=(const num& lhs, const num& rhs);
+bool operator<(const num& lhs, const num& rhs);
+bool operator<=(const num& lhs, const num& rhs);
+bool operator>(const num& lhs, const num& rhs);
+bool operator>=(const num& lhs, const num& rhs);
 
 #endif

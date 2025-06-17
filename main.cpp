@@ -3,15 +3,9 @@
 
 
 int main(){
-    num n;
+    num n,m;
     n.setValue(123456789);
-    n.print(); // Should print "+ 123456789"
-    
-    n.setValue(-987654321);
-    n.print(); // Should print "- 987654321"
-    
-    n.setValue(0);
-    n.print(); // Should print "0"
-    
-    return 0;
+    m = n;
+    std::cout << "n: " << n << std::endl;
+    std::cout << "m: " << m << std::endl;
 }

@@ -2,6 +2,8 @@
 #define NUM_H
 
 #include <vector>
+#include <iostream>
+#include <ostream>
 
 enum class Sign { POSITIVE, NEGATIVE, ZERO };
 const int BASE = 100;
@@ -23,10 +25,18 @@ class num {
     void print() const;
     bool isZero() const;
     int compare(const num& other) const;
+    void swap(num& other)noexcept {
+        std::swap(sign, other.sign);
+        std::swap(value, other.value);
+    }
 
     friend std::ostream& operator<<(std::ostream& os, const num& n);
     friend std::istream& operator>>(std::istream& is, num& n);
 
+    num& operator=(num other) noexcept{
+        swap(other);
+        return *this;
+    }
     num& operator+(const num& other);
     num& operator-(const num& other);
     num& operator*(const num& other);
